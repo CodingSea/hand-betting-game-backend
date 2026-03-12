@@ -19,3 +19,11 @@ app.use(cors(corsOptions));
 
 connectToDB();
 
+const gameRoute = require("./routes/game.route");
+app.use("/game", gameRoute);
+
+const port = process.env.PORT || 3000;
+app.listen(port, () =>
+{
+    console.log("listening to port " + port);
+})
