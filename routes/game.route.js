@@ -26,3 +26,6 @@ router.get("/", async (req, res) =>
 //         console.log(e);
 //     }
 // })
+
+
+module.exports = router;
