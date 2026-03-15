@@ -19,7 +19,7 @@ router.post("/new", async (req, res) =>
     try
     {
         const { username, score } = req.body;
-        
+
         const player = await Player.findOneAndUpdate(
             { username: username },
             { $max: { score: score } },
@@ -37,20 +37,5 @@ router.post("/new", async (req, res) =>
         res.sendStatus(500);
     }
 });
-
-
-
-// router.get("/", async (req, res) =>
-// {
-//     try
-//     {
-
-//     }
-//     catch(e) 
-//     {
-//         console.log(e);
-//     }
-// })
-
 
 module.exports = router;
