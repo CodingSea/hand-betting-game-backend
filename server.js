@@ -19,10 +19,8 @@ app.use(cors(corsOptions));
 
 connectToDB();
 
-const gameRoute = require("./routes/game.route");
 const playerRoute = require("./routes/player.route");
 
-app.use("/game", gameRoute);
 app.use("/player", playerRoute);
 
 const port = process.env.PORT || 3000;

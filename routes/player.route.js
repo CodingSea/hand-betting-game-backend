@@ -18,19 +18,26 @@ router.post("/new", async (req, res) =>
 {
     try
     {
-        const newPlayer = new Player({
-            username: req.body.username,
-            score: req.body.score
-        });
+        const { username, score } = req.body;
+        
+        const player = await Player.findOneAndUpdate(
+            { username: username },
+            { $max: { score: score } },
+            {
+                upsert: true,
+                new: true,
+                setDefaultsOnInsert: true
+            }
+        );
 
-        await newPlayer.save();
-        res.sendStatus(201).json(newPlayer);
-    }
-    catch (e) 
+        res.status(201).json(player);
+    } catch (e)
     {
-        console.log(e);
+        console.error(e);
+        res.sendStatus(500);
     }
-})
+});
+
 
 
 // router.get("/", async (req, res) =>
