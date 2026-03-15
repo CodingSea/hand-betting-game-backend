@@ -1,4 +1,4 @@
-# Hand Betting Game -- Backend
+# Hand Betting Game (Backend)
 
 This repository contains the **backend service** for the Hand Betting
 Game application.\
